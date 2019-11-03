@@ -46,6 +46,7 @@ var c = {
     setName('Updated again in method');
     console.log(this); //c의 name이 변하길 바라겠지만, global에 name이 생겨버리고 그 이름이 우리가 넣은 변수로 바뀐다. 왜 global을 가리키는가
     //그래서 self라는 변수를 만들어 this를 만드는 디자인 패턴을 쓴다. this가 혼란스럽기에
+    // 그래서 이제는 var 대신 이 문제를 해결한 let을 쓴다.
   }
 };
 
