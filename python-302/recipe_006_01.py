@@ -8,3 +8,11 @@
 #import
 import math
 print(math.pi)
+
+#필요 항목만 임포트 : from a import b
+from math import pi
+print(pi)
+
+#별명 짓기 : import a as b
+import math as m
+print(m.pi)
