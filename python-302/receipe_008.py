@@ -5,3 +5,7 @@ venv로 파이썬 가상 환경 만들기
 '''
 
 #현재 디렉토리에 myenv1이라는 가상환경 구축
+python -m venv myenv1
+
+# 윈도우에서 가상환경 진입
+# Scripts 디렉터리 아래에 activate.bat / deactivate.bat 두개의 배치파일이 있다. 이 명령어로 가상환경 on/off
