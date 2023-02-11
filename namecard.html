@@ -115,10 +115,16 @@
       .rotate {
         transform: rotate(180deg);
       }
+
+      .center{
+        width: 50%;
+        margin: 0 auto;
+      }
     </style>
   </head>
 
-  <body>
+  <body class="center">
+    <h1 id="title">👻명패봇</h1>
     <input type="file" id="file" accept=".csv" />
     <button id="download" onclick="window.print()">프린트하기</button>
     <div id="nameplate"></div>
@@ -133,6 +139,7 @@
         return index % 2 == 0 || index != fullLength - 1 ? "" : "</div>";
       };
       input.addEventListener("change", function (event) {
+        nameplateDiv.innerHTML(''); //clear
         const file = event.target.files[0];
 
         Papa.parse(file, {
