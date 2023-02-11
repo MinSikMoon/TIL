@@ -123,23 +123,27 @@
     <button id="download" onclick="window.print()">프린트하기</button>
     <div id="nameplate"></div>
     <script>
-        const input = document.getElementById("file");
-        const nameplateDiv = document.getElementById("nameplate");
-        const downloadBtn = document.getElementById("download");
+      const input = document.getElementById("file");
+      const nameplateDiv = document.getElementById("nameplate");
+      const downloadBtn = document.getElementById("download");
+      const setStartDiv = (index) => {
+        return index % 2 == 0 ? '<div class="print-page">' : "";
+      };
+      const setEndDiv = (index, fullLength) => {
+        return index % 2 == 0 || index != fullLength - 1 ? "" : "</div>";
+      };
+      input.addEventListener("change", function (event) {
+        const file = event.target.files[0];
 
-        input.addEventListener("change", function (event) {
-          const file = event.target.files[0];
+        Papa.parse(file, {
+          encoding: "EUC-KR",
+          header: true,
+          complete: function (results) {
+            alert;
+            results.data.forEach((data, index) => {
+              if (typeof data.Name === "undefined") return;
 
-          Papa.parse(file, {
-            encoding: "EUC-KR",
-            header: true,
-            complete: function (results) {
-              alert
-              results.data.forEach((data) => {
-                if (typeof data.Name === "undefined") return;
-
-                const nameplate = `
-                <div class="print-page">
+              const nameplate = `
                 <div class="square">
         <div class="part-sub">
           <div class="part-sub-inner color1"></div>
@@ -182,13 +186,13 @@
           <div class="part-sub-inner color1"></div>
         </div>
       </div>
-      </div>
           `;
-                nameplateDiv.innerHTML += nameplate;
-              });
-            },
-          });
+              nameplateDiv.innerHTML +=
+                setStartDiv(index) + nameplate + setEndDiv(index);
+            });
+          },
         });
+      });
     </script>
   </body>
 </html>
