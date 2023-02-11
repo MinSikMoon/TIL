@@ -139,7 +139,6 @@
           encoding: "EUC-KR",
           header: true,
           complete: function (results) {
-            alert;
             results.data.forEach((data, index) => {
               if (typeof data.Name === "undefined") return;
 
@@ -188,7 +187,7 @@
       </div>
           `;
               nameplateDiv.innerHTML +=
-                setStartDiv(index) + nameplate + setEndDiv(index);
+                setStartDiv(index) + nameplate + setEndDiv(index, results.data.length);
             });
           },
         });
