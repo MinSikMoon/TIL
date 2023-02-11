@@ -11,7 +11,8 @@
     <style>
       @media print {
         #download,
-        #file {
+        #file,
+        #title {
           display: none;
         }
         .print-page {
@@ -20,6 +21,10 @@
         .square {
           width: 19.7cm;
           height: 6.5cm;
+        }
+        .body {
+          width: 100%;
+          height: auto;
         }
       }
 
@@ -116,17 +121,19 @@
         transform: rotate(180deg);
       }
 
-      .center{
+      .center {
         width: 50%;
         margin: 0 auto;
       }
     </style>
   </head>
 
-  <body class="center">
-    <h1 id="title">👻명패봇</h1>
-    <input type="file" id="file" accept=".csv" />
-    <button id="download" onclick="window.print()">프린트하기</button>
+  <body>
+    <div class="center">
+      <h1 id="title">👻명패봇</h1>
+      <input type="file" id="file" accept=".csv" />
+      <button id="download" onclick="window.print()">프린트하기</button>
+    </div>
     <div id="nameplate"></div>
     <script>
       const input = document.getElementById("file");
