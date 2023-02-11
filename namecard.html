@@ -139,7 +139,6 @@
         return index % 2 == 0 || index != fullLength - 1 ? "" : "</div>";
       };
       input.addEventListener("change", function (event) {
-        nameplateDiv.innerHTML(''); //clear
         const file = event.target.files[0];
 
         Papa.parse(file, {
