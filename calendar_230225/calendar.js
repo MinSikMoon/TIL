@@ -52,7 +52,6 @@ let displayCalendar = () => {
           currentMonth === today.getMonth() &&
           currentYear === today.getFullYear()
         ) {
-          console.log("hihi");
           cell.classList.add("today");
         }
       }
