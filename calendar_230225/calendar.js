@@ -30,18 +30,18 @@ let displayCalendar = () => {
   tableBody.innerHTML = "";
 
   //6주(행)을 돌면서 7일을 만든다.
-  for (let i = 0; i < 6; i++) {
+  for (let loopWeekIndex = 0; loopWeekIndex < 6; loopWeekIndex++) {
     const row = document.createElement("tr"); //row(일주일 행) 하나를 만든다.
 
     //행안에서 7일을 돈다.
-    for (let j = 0; j < 7; j++) {
+    for (let loopDayIndex = 0; loopDayIndex < 7; loopDayIndex++) {
       let cell = document.createElement("td"); //날짜 element만든다.
-      const day = i * 7 + (j + 1) - firstDay; // 날짜를 미리 구해두고 filter 조건들을 통과시킨다.
+      const day = loopWeekIndex * 7 + (loopDayIndex + 1) - firstDay; // 날짜를 미리 구해두고 filter 조건들을 통과시킨다.
       let cellText = document.createTextNode("");
       //빈칸 필터 조건 : 첫번째 셀에 0일은 반드시 빈칸
-      if (i === 0 && j < firstDay) {
+      if (loopWeekIndex === 0 && loopDayIndex < firstDay) {
         cell.appendChild(cellText);
-      } else if ((i === 5 && j > lastDay) || day > numDays) {
+      } else if ((loopWeekIndex === 5 && loopDayIndex > lastDay) || day > numDays) {
         break;
       } else {
         cellText = document.createTextNode(day);
@@ -58,12 +58,8 @@ let displayCalendar = () => {
       }
       row.appendChild(cell);
     }
-
-    // 한주를 돌면서 day들을 붙여 줬으니 tableBody에 row를 붙여준다.
-    tableBody.appendChild(row);
+    tableBody.appendChild(row);// 한주를 돌면서 day들을 붙여 줬으니 tableBody에 row를 붙여준다.
   }
-
-  //console.log(numDays);
 };
 
 displayCalendar();
